@@ -1,0 +1,14 @@
+[Unit]
+Description=PolyLango whisper.cpp speech recognition
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_LINUX_USERNAME
+WorkingDirectory=/home/YOUR_LINUX_USERNAME/whisper.cpp
+ExecStart=/home/YOUR_LINUX_USERNAME/whisper.cpp/build/bin/whisper-server --host 127.0.0.1 --port 8080 --model /home/YOUR_LINUX_USERNAME/whisper.cpp/models/ggml-base.bin --convert
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
